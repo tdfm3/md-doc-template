@@ -50,7 +50,7 @@ flowchart LR
 | VuePress | 2.0.0-rc.24 | 静的サイトジェネレーター |
 | Vue.js | 3.x | 画面の部品（VuePress に同梱） |
 | Vite | 7.x | ビルドとホットリロード |
-| Node.js | v20以上 | 実行環境 |
+| Node.js | v24以上 | 実行環境 |
 | Sass | 1.93.x | スタイルの記述 |
 | Mermaid | 11.x | 図の描画 |
 | textlint | 15.x | 日本語の校正 |
@@ -193,14 +193,14 @@ npm run build
 
 | # | 処理 | 使用アクション |
 |------|------|------|
-| 1 | リポジトリの取得 | `actions/checkout@v4` |
-| 2 | Node.js v20 の準備 | `actions/setup-node@v4` |
-| 3 | 依存のキャッシュ | `actions/cache@v4` |
+| 1 | リポジトリの取得 | `actions/checkout@v7` |
+| 2 | Node.js v24 の準備 | `actions/setup-node@v7` |
+| 3 | 依存のキャッシュ | `actions/cache@v6` |
 | 4 | 依存のインストール | `npm ci` |
 | 5 | ビルド | `npm run build` |
-| 6 | Pages の設定 | `actions/configure-pages@v4` |
-| 7 | 成果物のアップロード | `actions/upload-pages-artifact@v3` |
-| 8 | 公開 | `actions/deploy-pages@v4` |
+| 6 | Pages の設定 | `actions/configure-pages@v6` |
+| 7 | 成果物のアップロード | `actions/upload-pages-artifact@v5` |
+| 8 | 公開 | `actions/deploy-pages@v5` |
 
 チェックアウト時に `fetch-depth: 0` を指定しているのは、
 各ページの最終更新日時を Git の履歴から取得するためです。
@@ -283,6 +283,7 @@ npm install -D @vuepress/plugin-〇〇
 | PlantUML の外部依存 | 閲覧時に外部の描画サーバーへ接続する | 閉域網では Mermaid を使う |
 | アイコンの外部依存 | 閲覧時に外部の配信サーバーへ接続する | 閉域網では絵文字を使う |
 | 依存の解決 | 一部プラグインの peer 依存が衝突する | `.npmrc` の `legacy-peer-deps=true` で回避済み |
+| インストール時スクリプト | npm 12 以降は既定でブロックされる | `package.json` の `allowScripts` で `esbuild` と `lefthook` を許可済み |
 
 ## 参考リンク
 

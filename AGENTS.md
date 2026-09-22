@@ -67,7 +67,7 @@ Markdown で書いたドキュメントを VuePress v2 でサイト化し、GitH
 |------|-----------|------|
 | **VuePress** | v2.0.0-rc.24 | 静的サイトジェネレーター |
 | **Vue.js** | 3.x（VuePress に内包） | UIフレームワーク |
-| **Node.js** | v20+ | 実行環境 |
+| **Node.js** | v24+ | 実行環境 |
 | **Vite** | v7+ | バンドラー |
 | **Sass** | v1.93+ | CSSプリプロセッサ |
 | **JavaScript** | ES Modules | 設定ファイルの記述 |
@@ -262,6 +262,29 @@ GitHub Pages のプロジェクトサイトは `https://<org>.github.io/<repo>/`
 npm install     # 依存導入 + lefthook の Git フック登録（prepare スクリプト）
 ```
 
+#### インストール時スクリプトの許可
+
+npm 12 以降、依存パッケージの `preinstall` / `install` / `postinstall` は**既定でブロック**される。
+サプライチェーン攻撃がこの経路を使うためで、許可したパッケージだけが実行できる。
+
+本リポジトリは `package.json` の `allowScripts` で次の2つを許可済み。
+
+| パッケージ | 用途 |
+|------|------|
+| `esbuild` | プラットフォーム別バイナリの配置。ビルドに必須 |
+| `lefthook` | Git フックのバイナリ配置。コミット前の校正に必須 |
+
+依存を追加・更新して新たにスクリプトを持つパッケージが入った場合は、次の手順で確認する。
+
+```bash
+npm approve-scripts --allow-scripts-pending   # 未承認のものを一覧表示
+npm approve-scripts <パッケージ名>             # 内容を確認したうえで許可
+npm deny-scripts <パッケージ名>                # 拒否する場合
+```
+
+結果は `package.json` に書き込まれるのでコミットすること。
+これらのコマンドには **npm 11.16.0 以上**が必要。
+
 ### 開発サーバー起動
 
 ```bash
@@ -334,7 +357,7 @@ grep -rhoE 'href="/[a-zA-Z0-9][^"]*"' . | grep -v '^href="/md-doc-template' | so
 1. `<header-table/>` の閉じスラッシュ漏れを確認
 2. キャッシュクリア: `docs/.vuepress/.cache` と `.temp` を削除
 3. 依存関係再インストール: `node_modules` を削除して `npm install`
-4. Node.jsバージョン確認: `node -v` (v20+必須)
+4. Node.jsバージョン確認: `node -v` (v24+必須)
 
 ### npm install で依存関係エラー（ERESOLVE）
 

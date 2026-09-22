@@ -62,7 +62,7 @@ description: 'Markdown で書いて GitHub Pages に公開するドキュメン�
 
 ### 必要なもの
 
-- Node.js v20 以上
+- Node.js v24 以上
 
 ### セットアップ
 
@@ -175,7 +175,7 @@ npm run textlint:fix
 | 技術 | バージョン | 用途 |
 |------|------|------|
 | VuePress | v2.0.0-rc.24 | 静的サイトジェネレーター |
-| Node.js | v20+ | 実行環境 |
+| Node.js | v24+ | 実行環境 |
 | Vite | v7+ | バンドラー |
 | Sass | v1.93+ | CSS プリプロセッサ |
 | Mermaid | v11+ | 図表の描画 |
