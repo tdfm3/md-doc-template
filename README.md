@@ -174,10 +174,10 @@ npm run textlint:fix
 
 | 技術 | バージョン | 用途 |
 |------|------|------|
-| VuePress | v2.0.0-rc.24 | 静的サイトジェネレーター |
+| VuePress | v2.0.0-rc.31 | 静的サイトジェネレーター |
 | Node.js | v24+ | 実行環境 |
-| Vite | v7+ | バンドラー |
-| Sass | v1.93+ | CSS プリプロセッサ |
+| Vite | v8+ | バンドラー |
+| Sass | v1.104+ | CSS プリプロセッサ |
 | Mermaid | v11+ | 図表の描画 |
 | textlint | v15+ | 日本語の校正 |
 | lefthook | v2+ | コミット前フック |
