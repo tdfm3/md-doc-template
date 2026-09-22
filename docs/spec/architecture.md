@@ -66,7 +66,7 @@ flowchart LR
 | `@vuepress/plugin-markdown-tab` | タブ切り替え |
 | `@vuepress/plugin-markdown-image` | 画像の遅延読み込みと `#bordered` |
 | `@vuepress/plugin-icon` | Iconify のアイコン記法 |
-| `@snippetors/vuepress-plugin-code-copy` | コードのコピーボタン |
+| `@vuepress/plugin-copy-code` | コードのコピーボタン |
 | （VuePress 標準） | 絵文字記法、URL の自動リンク、コードブロックの行番号 |
 
 ## ディレクトリ構造
@@ -280,8 +280,9 @@ npm install -D @vuepress/plugin-〇〇
 |------|------|------|
 | サイドバーの手動登録 | ディレクトリからの自動生成は非対応 | `sidebar.js` に追記する |
 | PlantUML の外部依存 | 閲覧時に外部の描画サーバーへ接続する | 閉域網では Mermaid を使う |
+| Mermaid のバージョン | `@vuepress/plugin-markdown-chart` の peer 指定が `mermaid: ^11.14.0` で、12 系に未対応 | 11 系に据え置く。プラグインが対応してから上げる |
 | アイコンの外部依存 | 閲覧時に外部の配信サーバーへ接続する | 閉域網では絵文字を使う |
-| 依存の解決 | 一部プラグインの peer 依存が衝突する | `.npmrc` の `legacy-peer-deps=true` で回避済み |
+| 依存の解決 | peer 依存を自動インストールすると木が肥大し、追加のインストール時スクリプト承認が必要になる | `.npmrc` の `legacy-peer-deps=true` で peer の自動導入を抑止している |
 | インストール時スクリプト | npm 12 以降は既定でブロックされる | `package.json` の `allowScripts` で `lefthook` を許可済み |
 
 ## 参考リンク

@@ -18,10 +18,9 @@
   "devDependencies": {
     "@vuepress/bundler-vite": "^2.0.0-rc.24",
     "@vuepress/plugin-icon": "^2.0.0-rc.120",
-    "@vuepress/plugin-markdown-chart": "^2.0.0-rc.109",
+    "@vuepress/plugin-markdown-chart": "^2.0.0-rc.134",
     "@vuepress/plugin-markdown-ext": "^2.0.0-rc.112",
     "@vuepress/plugin-markdown-image": "^2.0.0-rc.121",
-    "@vuepress/plugin-markdown-tab": "^2.0.0-rc.121",
     "@vuepress/plugin-search": "^2.0.0-rc.112",
     "@vuepress/theme-default": "^2.0.0-rc.24",
     "lefthook": "^2.0.8",
@@ -34,9 +33,6 @@
     "textlint-rule-preset-ja-technical-writing": "^12.0.2",
     "vite": "^8.3.0",
     "vuepress": "^2.0.0-rc.24"
-  },
-  "dependencies": {
-    "@snippetors/vuepress-plugin-code-copy": "^1.2.3"
   },
   "allowScripts": {
     "lefthook": true
