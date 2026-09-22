@@ -143,7 +143,7 @@ Markdown の中に書ける専用部品です。フロントマターの値を�
 | `header-table.vue` | `description` / `time` / `prior_knowledge` | ページ冒頭 |
 | `credit-footer.vue` | `footer` | ページ末尾 |
 
-使い方は[3. フロントマターとコンポーネント](/guide/03-frontmatter/)を参照してください。
+使い方は[3. フロントマターとコンポーネント](/guide/03-frontmatter/README.md)を参照してください。
 
 ## ビルドプロセス
 

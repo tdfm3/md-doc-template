@@ -155,12 +155,12 @@ footer: © 2026 Your Organization. All Rights Reserved.
 
 ::: tip heroImage は public に置きます
 `heroImage` に指定する画像は `docs/.vuepress/public/` に置き、`/hero.svg` のように書きます。
-画像の置き場所については[次の章](/guide/04-workflow/)で説明します。
+画像の置き場所については[次の章](/guide/04-workflow/README.md)で説明します。
 :::
 
 ## 次に読む
 
 ページの書き方はここまでです。
-書いたページを実際に公開するまでの手順は、[4. 執筆から公開までの流れ](/guide/04-workflow/)に進んでください。
+書いたページを実際に公開するまでの手順は、[4. 執筆から公開までの流れ](/guide/04-workflow/README.md)に進んでください。
 
 <credit-footer/>

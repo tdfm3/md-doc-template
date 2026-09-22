@@ -27,7 +27,8 @@ Format: このリポジトリの書式に従ってください。
 - ファイル先頭にフロントマター（`title` / `description` / `time` / `prior_knowledge` / `footer`）を書く。
 - フロントマターの直後に `<header-table/>`、ファイル末尾に `<credit-footer/>` を置く。
 - 作成したページのパスを `docs/.vuepress/sidebar.js` に追加する。追加しないとページへ到達できない。
-- サイト内リンクは `/guide/01-basic-syntax/` のように `/` から始まるパスで書く。絶対 URL は使わない。
+- サイト内リンクは `/guide/01-basic-syntax/README.md` のように `/` で始まり `.md` で終わるパスで書く。
+  ディレクトリで終わる書き方や絶対 URL は、公開先のサブパスが付かずリンク切れになる。
 - 絵文字は使わない。強調は太字、注意は `::: warning`、補足は `::: tip` を使う。
 - 使える記法の詳細は `docs/guide/` 配下のガイドを参照する。
 </Format>
