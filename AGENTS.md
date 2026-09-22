@@ -83,7 +83,7 @@ Markdown で書いたドキュメントを VuePress v2 でサイト化し、GitH
 - `@vuepress/plugin-markdown-image` - 画像の遅延読み込み・`#bordered`
 - `@vuepress/plugin-icon` - Iconify のアイコン記法
 - `@snippetors/vuepress-plugin-code-copy` - コードコピーボタン
-- `markdown-it-emoji` - 絵文字記法
+- 絵文字記法（`:tada:`）と URL の自動リンクは VuePress v2 の標準機能。追加の依存は不要
 
 #### 開発ツール
 

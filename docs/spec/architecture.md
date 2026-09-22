@@ -67,7 +67,7 @@ flowchart LR
 | `@vuepress/plugin-markdown-image` | 画像の遅延読み込みと `#bordered` |
 | `@vuepress/plugin-icon` | Iconify のアイコン記法 |
 | `@snippetors/vuepress-plugin-code-copy` | コードのコピーボタン |
-| `markdown-it-emoji` | 絵文字記法 |
+| （VuePress 標準） | 絵文字記法、URL の自動リンク、コードブロックの行番号 |
 
 ## ディレクトリ構造
 
@@ -117,7 +117,29 @@ flowchart LR
 | `head` | ファビコンなど `<head>` に入れる要素 |
 | `theme` | テーマの設定。`navbar` と `sidebar` を読み込む |
 | `markdown` | Markdown の解釈方法（行番号、自動リンク、絵文字） |
-| `plugins` | 前述のプラグイン群 |
+| `plugins` | 前述のプラグイン群。先頭のローカルプラグインで自動リンクを調整している |
+
+::: warning 設定キーの名前に注意
+VuePress v2 の `markdown` が受け付けるキーは限られています。
+`extendMarkdown` や `lineNumbers` は**存在しないキーで、指定しても黙って無視されます**。
+markdown-it を直接いじる場合は、プラグインの `extendsMarkdown` フックを使ってください。
+
+```js
+plugins: [
+  {
+    name: 'local-markdown',
+    extendsMarkdown: (md) => {
+      md.linkify.set({ fuzzyLink: false })
+    },
+  },
+]
+```
+
+本テンプレートではこれを使って、スキーマなしの自動リンクを無効化しています。
+有効のままだと `README.md` や `config.js` がドメインと解釈され
+（`.md` はモルドバ、`.js` はジャージーの TLD）、`http://README.md` という
+存在しないリンクが生成されます。
+:::
 
 ### navbar.js / sidebar.js
 
