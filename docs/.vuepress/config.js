@@ -4,9 +4,7 @@ import { defaultTheme } from '@vuepress/theme-default'
 import { searchPlugin } from '@vuepress/plugin-search'
 import { markdownExtPlugin } from '@vuepress/plugin-markdown-ext'
 import { markdownChartPlugin } from '@vuepress/plugin-markdown-chart'
-import codeCopyPlugin from '@snippetors/vuepress-plugin-code-copy'
 import { markdownImagePlugin } from '@vuepress/plugin-markdown-image'
-import { markdownTabPlugin } from '@vuepress/plugin-markdown-tab'
 import { iconPlugin } from '@vuepress/plugin-icon'
 import { navbar } from './navbar.js'
 import { sidebar } from './sidebar.js'
@@ -45,6 +43,30 @@ export default defineUserConfig({
     // ナビゲーション設定（navbar.js / sidebar.js で定義）
     navbar,
     sidebar,
+
+    // テーマが内蔵するプラグインの設定。
+    // copy-code と markdown-tab は theme-default が依存として持っているため、
+    // ルートの plugins で登録すると「used multiple times」の警告が出る。
+    // 設定はここで行うこと。
+    themePlugins: {
+      copyCode: {
+        // ボタンと完了メッセージの文言
+        locales: {
+          '/': {
+            copy: 'コピー',
+            copied: 'コピーしました！',
+          },
+        },
+        // 既定ではスマートフォンで非表示になるため明示的に有効化する
+        showInMobile: true,
+      },
+      tab: {
+        // コードブロックのタブ
+        codeTabs: true,
+        // 通常のタブ
+        tabs: true,
+      },
+    },
 
     // リポジトリ設定
     // ※自分のリポジトリを指定すると、ナビゲーションバーに GitHub へのリンクが表示される
@@ -101,12 +123,6 @@ export default defineUserConfig({
       // PlantUML図を有効化
       plantuml: true,
     }),
-    codeCopyPlugin({
-      // プラグインオプション
-      buttonText: 'コピー',
-      buttonAriaLabel: 'コードをコピー',
-      successText: 'コピーしました！',
-    }),
     iconPlugin({
       assets: "iconify",
       markdown: true,
@@ -114,12 +130,6 @@ export default defineUserConfig({
     markdownImagePlugin({
       lazyload: true,
       mark: true
-    }),
-    markdownTabPlugin({
-      // Enable code tabs
-      codeTabs: true,
-      // Enable tabs
-      tabs: true,
     }),
   ],
 })
