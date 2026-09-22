@@ -8,12 +8,8 @@ import codeCopyPlugin from '@snippetors/vuepress-plugin-code-copy'
 import { markdownImagePlugin } from '@vuepress/plugin-markdown-image'
 import { markdownTabPlugin } from '@vuepress/plugin-markdown-tab'
 import { iconPlugin } from '@vuepress/plugin-icon'
-import { createRequire } from 'module'
 import { navbar } from './navbar.js'
 import { sidebar } from './sidebar.js'
-
-const require = createRequire(import.meta.url)
-const emoji = require('markdown-it-emoji')
 
 /**
  * 公開先のサブパス。
@@ -64,18 +60,24 @@ export default defineUserConfig({
     contributorsText: '執筆者',
   }),
 
-  markdown: {
-    extendMarkdown: md => {
-      md.set({
-        linkify: true
-      })
-      md.use(emoji)
-    },
-    lineNumbers: true
-  },
+  // Markdown の設定
+  // 絵文字（:tada:）と自動リンクは VuePress v2 が標準で備えている。
+  // コードブロックの行番号はテーマ側の機能。いずれもここでの指定は不要。
+  markdown: {},
 
   // プラグイン設定
   plugins: [
+    {
+      // スキーマなしの自動リンクを無効化する。
+      // 有効のままだと README.md や config.js のようなファイル名が
+      // ドメイン（.md はモルドバ、.js はジャージーの TLD）と解釈され、
+      // http://README.md という存在しないリンクが生成される。
+      // https:// から始まる URL は引き続き自動でリンクになる。
+      name: 'md-doc-template-markdown',
+      extendsMarkdown: (md) => {
+        md.linkify.set({ fuzzyLink: false })
+      },
+    },
     searchPlugin({
       // 検索オプション
       locales: {
