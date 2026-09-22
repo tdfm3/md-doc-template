@@ -1,0 +1,30 @@
+# prh.yml - 表記ゆれの辞書
+#
+# textlint の prh ルールから読み込まれる。
+# ここに登録した表記は `npm run textlint` で検出され、
+# `npm run textlint:fix` で自動的に置き換えられる。
+#
+# プロジェクトで表記を統一したい用語を追加すること。
+# 初期状態ではルールを登録していない。
+
+version: 1
+
+rules: []
+
+# 記述例:
+#
+# rules:
+#   # 単純な言い換え
+#   - expected: サーバー
+#     pattern: サーバ
+#
+#   # 正規表現で複数の表記をまとめる
+#   - expected: JavaScript
+#     pattern: /[Jj]ava[ _-]?[Ss]cript/
+#
+#   # specs を書くと、意図どおり置換されるかを textlint 実行時に検証できる
+#   - expected: ユーザー
+#     pattern: /ユーザ(?!ー)/
+#     specs:
+#       - from: ユーザが操作する
+#         to: ユーザーが操作する

@@ -1,0 +1,51 @@
+/* ========================================================================
+   サイト全体のスタイル調整
+   VuePress が自動で読み込むため、config.js への登録は不要。
+   ======================================================================== */
+
+/* 検索ボックスの幅を広げる */
+.search-box {
+  input {
+    width: 15rem !important;
+    max-width: 15rem !important;
+  }
+}
+
+/* モバイル表示時は検索ボックスを狭める */
+@media (max-width: 719px) {
+  .search-box {
+    input {
+      width: 10rem !important;
+    }
+  }
+}
+
+/* タスクリスト（チェックボックス）のスタイル */
+.task-list-item {
+  list-style-type: none;
+
+  input[type="checkbox"] {
+    margin-right: 0.75rem;
+    vertical-align: middle;
+  }
+}
+
+/* ダークモード対応 - テーブル罫線用カスタム色 */
+:root {
+  --table-border-color: #dee2e6;
+}
+
+html.dark {
+  --table-border-color: #4a5568;
+}
+
+/* ホームページの本文幅（横長のテーブルを置く場合に有効） */
+.vp-home {
+  max-width: 1040px !important;
+}
+
+/* 画像URLの末尾に #bordered を付けると枠線が付く
+   例: ![スクリーンショット](./images/sample.svg#bordered) */
+img[src$="#bordered"] {
+  border: 1px solid #dfdddd;
+}
