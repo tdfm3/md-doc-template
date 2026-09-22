@@ -157,7 +157,9 @@ md-doc-template/
 - **フロントマター**: YAML形式
 - **見出し**: `#` は1ページに1つ。階層を飛ばさない
 - **コードブロック**: 言語指定必須
-- **サイト内リンク**: `/guide/...` のように `/` 始まりのパス。絶対URLは使わない
+- **サイト内リンク**: `/guide/.../README.md` のように `/` で始まり `.md` で終わるパス。
+  ディレクトリ終わり（`/guide/.../`）、HTML の `<a>` タグ、絶対URLは base が付かずリンク切れになる。
+  画像は絶対パス（`/hero.svg`）でも base が付くため、この制約はリンクにのみ当てはまる
 - **絵文字は使わない**: 後述の「絵文字を使わない理由」を参照
 
 ### フロントマター必須項目
@@ -288,6 +290,20 @@ $env:VUEPRESS_BASE = '/md-doc-template/'; npm run build
 > **注意**: Git Bash で `VUEPRESS_BASE=/md-doc-template/ npm run build` と書くと、
 > MSYS のパス変換により値が Windows のパスへ書き換えられ、検証にならない。
 > Windows で確認する場合は PowerShell を使うこと。
+
+#### リンク切れの確認
+
+**`npm run build` はサイト内リンクの `base` 漏れを検出しない。**
+サブディレクトリで公開する場合は、base を付けてビルドしたうえで次を実行する。
+
+```bash
+cd docs/.vuepress/dist
+grep -rhoE 'href="/[a-zA-Z0-9][^"]*"' . | grep -v '^href="/md-doc-template' | sort -u
+```
+
+1件でも出力されたら、そのリンクは公開先で 404 になる。
+原因はほぼ `](/guide/xxx/)` のようなディレクトリ終わりの内部リンクなので、
+`](/guide/xxx/README.md)` に直すこと。
 
 ### デプロイフロー
 

@@ -19,17 +19,17 @@ footer: © 2026 Your Organization. All Rights Reserved.
 
 | 章 | 内容 | こんなときに読む |
 |------|------|------|
-| [1. Markdown の基本記法](/guide/01-basic-syntax/) | 見出し、リスト、リンク、画像、表など | Markdown をはじめて書く |
-| [2. VuePress の拡張記法](/guide/02-vuepress-syntax/) | 注意書きボックス、タブ、図、絵文字など | 標準の Markdown では足りない |
-| [3. フロントマターとコンポーネント](/guide/03-frontmatter/) | ページ先頭の設定と、専用の表示部品 | 新しいページを作る |
-| [4. 執筆から公開までの流れ](/guide/04-workflow/) | ページ追加、画像配置、校正、公開 | 書いたものを公開する |
+| [1. Markdown の基本記法](/guide/01-basic-syntax/README.md) | 見出し、リスト、リンク、画像、表など | Markdown をはじめて書く |
+| [2. VuePress の拡張記法](/guide/02-vuepress-syntax/README.md) | 注意書きボックス、タブ、図、絵文字など | 標準の Markdown では足りない |
+| [3. フロントマターとコンポーネント](/guide/03-frontmatter/README.md) | ページ先頭の設定と、専用の表示部品 | 新しいページを作る |
+| [4. 執筆から公開までの流れ](/guide/04-workflow/README.md) | ページ追加、画像配置、校正、公開 | 書いたものを公開する |
 
 ## 最初に読むなら
 
-Markdown を書いたことがないなら、[1. Markdown の基本記法](/guide/01-basic-syntax/)から順に読んでください。
+Markdown を書いたことがないなら、[1. Markdown の基本記法](/guide/01-basic-syntax/README.md)から順に読んでください。
 
-すでに Markdown を書ける場合は、[3. フロントマターとコンポーネント](/guide/03-frontmatter/)と
-[4. 執筆から公開までの流れ](/guide/04-workflow/)だけで、このテンプレート固有の決まりごとを把握できます。
+すでに Markdown を書ける場合は、[3. フロントマターとコンポーネント](/guide/03-frontmatter/README.md)と
+[4. 執筆から公開までの流れ](/guide/04-workflow/README.md)だけで、このテンプレート固有の決まりごとを把握できます。
 
 ::: tip 手元で動かしながら読むと早いです
 `npm run dev` を実行してから読むと、ソースを書き換えた結果がすぐにブラウザへ反映されます。

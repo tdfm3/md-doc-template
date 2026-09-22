@@ -37,6 +37,6 @@ footer: © 2026 Your Organization. All Rights Reserved.
 
 | 知りたいこと | 読む場所 |
 |------|------|
-| Markdown の書き方を知りたい | [ドキュメントの書き方](/guide/) |
+| Markdown の書き方を知りたい | [ドキュメントの書き方](/guide/README.md) |
 | このサイトの仕組みを知りたい | [アーキテクチャ設計書](/spec/architecture.md) |
 | リポジトリをコピーして公開したい | リポジトリの `README.md` |

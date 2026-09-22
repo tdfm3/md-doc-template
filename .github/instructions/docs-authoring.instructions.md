@@ -64,8 +64,21 @@ footer: © 2026 Your Organization. All Rights Reserved.
 
 ## 5. サイト内リンク
 
-`/guide/01-basic-syntax/` のように `/` から始まるパスで書きます。
-`https://` から始まる絶対 URL は使いません。公開先が変わるとリンク切れになるためです。
+`/guide/01-basic-syntax/README.md` のように、`/` で始まり `.md` で終わるパスで書きます。
+
+VuePress が公開先に合わせてリンクを書き換えるのは **`.md` で終わる内部リンクだけ**です。
+
+| 書き方 | 結果 |
+|------|------|
+| `/guide/01-basic-syntax/README.md` | 正しく解決される |
+| `/guide/01-basic-syntax/` | 外部リンク扱いになりリンク切れ |
+| `<a href="/guide/01-basic-syntax/">` | 生の HTML は書き換えられずリンク切れ |
+| `https://...` の絶対 URL | 公開先が変わると切れる |
+
+リンクは必ず Markdown の `[表示テキスト](パス)` で書きます。HTML の `<a>` タグは使いません。
+
+なお**画像は絶対パスでも書き換えられます**。`![ロゴ](/hero.svg)` も `<img src="/hero.svg">` も
+公開先に合わせて解決されるため、この制約はリンクにのみ当てはまります。
 
 ## 6. 画像
 
