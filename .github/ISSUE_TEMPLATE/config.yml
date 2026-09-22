@@ -1,0 +1,11 @@
+# GitHub が解釈するのは blank_issues_enabled と contact_links のみ。
+# 各テンプレートの表示名や説明は、それぞれの .md ファイルの
+# フロントマター（name / about / labels）で定義する。
+blank_issues_enabled: false
+
+# ※コピーしたら、自分のチームの連絡先に書き換えること。
+# 不要な場合は contact_links ごと削除してよい。
+contact_links:
+  - name: その他のお問い合わせ
+    url: https://example.com/contact
+    about: その他の相談や課題は、リポジトリの管理者にお問い合わせください。

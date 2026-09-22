@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180"
+     role="img" aria-label="サンプル画像">
+  <rect width="320" height="180" rx="8" fill="#f3f5f7"/>
+  <g fill="none" stroke="#3eaf7c" stroke-width="3" stroke-linecap="round">
+    <path d="M60 120 l40 -44 l34 30 l44 -58 l52 72"/>
+  </g>
+  <circle cx="90" cy="54" r="12" fill="#3eaf7c"/>
+  <g fill="#8a9099">
+    <rect x="24" y="148" width="120" height="8" rx="4"/>
+    <rect x="152" y="148" width="60" height="8" rx="4"/>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+# コミット前に、変更された Markdown を textlint でチェックする。
+# npm install 実行時に package.json の prepare スクリプトから自動で登録される。
+#
+# 自動修正（--fix）は日本語を機械的に置換するため、ここでは実行しない。
+# 指摘が出たら `npm run textlint:fix` を手動で実行し、git diff で結果を確認すること。
+pre-commit:
+  commands:
+    textlint:
+      glob: "docs/**/*.md"
+      run: npx textlint --no-color {staged_files}

@@ -1,0 +1,50 @@
+{
+  "filters": {
+    "allowlist": {
+      "allow": [
+        "/```[\s\S]*?```/",
+        "/`[^`]+`/",
+        "/@startuml[\s\S]*?@enduml/",
+        "〇〇",
+        "Markdown",
+        "VuePress",
+        "VS Code",
+        "GitHub",
+        "GitHub Pages",
+        "GitHub Actions",
+        "Mermaid",
+        "PlantUML",
+        "Iconify",
+        "textlint",
+        "lefthook",
+        "はじめに",
+        "事前準備"
+      ]
+    },
+    "comments": true
+  },
+  "rules": {
+    "preset-ja-technical-writing": {
+      "sentence-length": { "max": 150 },
+      "arabic-kanji-numbers": false,
+      "no-mix-dearu-desumasu": {
+        "preferInHeader": "",
+        "preferInBody": "ですます",
+        "preferInList": "である",
+        "strict": false
+      },
+      "ja-no-mixed-period": {
+        "periodMark": "。",
+        "allowPeriodMarks": [":", "："],
+        "allowEmojiAtEnd": false
+      },
+      "no-doubled-joshi": { "strict": false, "allow": ["か", "も"] },
+      "no-exclamation-question-mark": false,
+      "ja-no-weak-phrase": false
+    },
+    "preset-ja-engineering-paper": {
+      "unify-kuten-and-touten": false,
+      "prh": { "rulePaths": ["./prh.yml"] }
+    }
+  }
+}
